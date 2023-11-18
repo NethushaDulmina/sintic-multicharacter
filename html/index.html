@@ -343,12 +343,12 @@
                     this.selectedCharacter = idx
 
                     if (this.characters[idx] !== undefined) {
-                        axios.post('https://neguru-multicharacter/cDataPed', {
+                        axios.post('https://sintic-multicharacter/cDataPed', {
                             cData: this.characters[idx]
                         });
                     }
                     else {
-                        axios.post('https://neguru-multicharacter/cDataPed', {})
+                        axios.post('https://sintic-multicharacter/cDataPed', {})
                     }
                 },
 
@@ -359,7 +359,7 @@
                 delete_character: function() {
                     if (this.show.delete == true) {
                         this.show.delete = false
-                        axios.post('https://neguru-multicharacter/removeCharacter', {
+                        axios.post('https://sintic-multicharacter/removeCharacter', {
                             citizenid: this.characters[this.selectedCharacter].citizenid
                         });
                     }
@@ -376,7 +376,7 @@
                         var data = this.characters[this.selectedCharacter]
 
                         if (data !== undefined) {
-                            axios.post('https://neguru-multicharacter/selectCharacter', {
+                            axios.post('https://sintic-multicharacter/selectCharacter', {
                                 cData: data
                             });
                             setTimeout(function() {
@@ -404,7 +404,7 @@
                     if (profanityTest && registerData.firstname !== undefined && registerData.firstname !== "" && registerData.lastname !== undefined && registerData.lastname !== "" && registerData.gender !== undefined && registerData.nationality !== undefined && registerData.nationality !== "" && registerData.date !== undefined) {
                         this.show.register = false
 
-                        axios.post('https://neguru-multicharacter/createNewCharacter', {
+                        axios.post('https://sintic-multicharacter/createNewCharacter', {
                             firstname: registerData.firstname,
                             lastname: registerData.lastname,
                             nationality: registerData.nationality,
@@ -480,14 +480,14 @@
                                 }, 500);
 
                                 setTimeout(function () {
-                                    axios.post('https://neguru-multicharacter/setupCharacters');
+                                    axios.post('https://sintic-multicharacter/setupCharacters');
                                     setTimeout(function () {
                                         clearInterval(DotsInterval);
                                         loadingProgress = 0;
                                         viewmodel.loadingText = viewmodel.translate('retrieving_playerdata');
                                         viewmodel.show.loading = false
                                         viewmodel.show.characters = true
-                                        axios.post('https://neguru-multicharacter/removeBlur');
+                                        axios.post('https://sintic-multicharacter/removeBlur');
                                     }, 2000);
                                 }, 2000);
                             }
